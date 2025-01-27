@@ -1,3 +1,12 @@
 #post-btn {
     background-color: orange;
 }
+
+#snus-container {
+    max-height: 800px; /* Limits the height of the container */
+    overflow-y: auto;  /* Adds a scrollbar if content overflows */
+    border: 1px solid #ccc; /* Optional: Adds a subtle border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    padding: 10px; /* Adds spacing inside the container */
+    background-color: #f9f9f9; /* Optional: Light background for better readability */
+}

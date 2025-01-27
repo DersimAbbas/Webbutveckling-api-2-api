@@ -5,18 +5,28 @@ try{
     const response = await fetch("http://localhost:3000/client/snuslager")
     const snus = await response.json();
     const container = document.getElementById("snus-container");
+    const ul = document.createElement("ul");
+    ul.style.listStyleType = "none"; // Removes default bullet points
+    ul.style.padding = "0"; // Optional: To remove extra spacing
+    ul.style.margin = "0"; // Optional: To remove extra margin
     container.innerHTML = "";
     snus.forEach(item => {
-        const snusDiv = document.createElement("div");
-        snusDiv.innerHTML = `
+        const li = document.createElement("li");
+        li.style.marginBottom = "10px"; // Adds spacing between list items
+        li.style.border = "1px solid #ccc"; // Optional: Add a border for styling
+        li.style.borderRadius = "5px"; // Optional: Rounded corners
+        li.style.padding = "10px"; // Optional: Add padding inside each item
+    
+        li.innerHTML = `
             <h3>${item.name}</h3>
             <p>Type: ${item.type}</p>
             <p>Strength: ${item.strength}</p>
             <p>Tobacco: ${item.tobak}</p>
             <p>Price: ${item.price}kr</p>
         `;
-        container.appendChild(snusDiv);
+        ul.appendChild(li);
     });
+    container.appendChild(ul);
     console.log("snus retrieved successfully.");
 }
 catch (error){
